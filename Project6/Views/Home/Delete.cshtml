@@ -1,0 +1,19 @@
+@model Project6.Models.Movie
+
+@{
+    ViewData["Title"] = "Delete Movie";
+}
+
+<h2>Are you sure you want to delete this movie?</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <p>Directed by: @Model.Director</p>
+    <p>Category: @Model.Category?.CategoryName</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="MovieId" />
+    <button type="submit" class="btn btn-danger">✅ Confirm Delete</button>
+    <a asp-action="WaitList" class="btn btn-secondary">🔙 Cancel</a>
+</form>
